@@ -17,7 +17,7 @@ var Letter = function(letter)
 
   this.letterCheck = function(char)
   {
-    if (char === this.letter)
+    if ((char === this.letter) || (char.toUpperCase() === this.letter) )
     {
       this.guessed = true;
     }
