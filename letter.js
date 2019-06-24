@@ -11,7 +11,14 @@ var Letter = function(letter)
     }
   	else
     {
-      return "_";
+      if (this.letter === " ")
+      {
+        return " ";
+      }
+      else
+      {
+        return "_";
+      }      
     }
   },
 

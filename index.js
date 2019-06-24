@@ -13,6 +13,7 @@ var newWord;
 var correct;
 var guessLeft;
 var preCount;
+var space;
 
 function newGame()
 {
@@ -29,6 +30,13 @@ function newGame()
 	correct = false;
     guessLeft = 10;
     preCount = 0;
+    space = 0;
+
+    if (spells[index].includes(" "))
+    {
+        space++;
+    }
+
 	play();
 }
 
@@ -55,7 +63,7 @@ inquirer
         	if (newWord.word[i].guessed)
         	{
         		count ++;
-        	}           
+        	}      
         }
 
         if (preCount < count)
@@ -69,15 +77,14 @@ inquirer
             console.log(guessLeft + " guesses remaining!!")
         }
 
-
         preCount = count;
 
-        if (count < newWord.word.length && guessLeft > 0)
+        if (count < (newWord.word.length - space) && guessLeft > 0)
         {
             play();
     	}
 
-    	else if (count === newWord.word.length && guessLeft > 0)
+    	else if ((count === newWord.word.length - space) && guessLeft > 0)
     	{
     		console.log("You got it right! Next Word!")
     		newGame();
