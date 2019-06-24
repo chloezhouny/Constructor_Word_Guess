@@ -14,6 +14,7 @@ var correct;
 var guessLeft;
 var preCount;
 var space;
+var guessedLetter;
 
 function newGame()
 {
@@ -31,18 +32,20 @@ function newGame()
     guessLeft = 10;
     preCount = 0;
     space = 0;
+    guessedLetter = [];
 
     if (spells[index].includes(" "))
     {
         space++;
     }
-
+    console.log(newWord.wordPrint());
 	play();
 }
 
 
 function play()
 {
+
 
 inquirer
     .prompt([
@@ -56,46 +59,57 @@ inquirer
 
         var userGuess = answer.letter;
         var count = 0;
-        newWord.wordCheck(userGuess);
-        console.log(newWord.wordPrint());
-        for ( var i = 0; i < newWord.word.length; i ++)
+
+        if (guessedLetter.includes(userGuess))
         {
-        	if (newWord.word[i].guessed)
-        	{
-        		count ++;
-        	}      
+            console.log("Letter already guessed!!");
+            play();
         }
 
-        if (preCount < count)
-        {
-        	console.log("Correct!");
-        }
         else
         {
-        	console.log("Incorrect!")
-            guessLeft --;
-            console.log(guessLeft + " guesses remaining!!")
-        }
+            guessedLetter.push(userGuess);
+            newWord.wordCheck(userGuess);
+            console.log(newWord.wordPrint());
+            for ( var i = 0; i < newWord.word.length; i ++)
+            {
+            	if (newWord.word[i].guessed)
+            	{
+            		count ++;
+            	}      
+            }
 
-        preCount = count;
+            if (preCount < count)
+            {
+            	console.log("Correct!");
+            }
+            else
+            {
+            	console.log("Incorrect!")
+                guessLeft --;
+                console.log(guessLeft + " guesses remaining!!")
+            }
 
-        if (count < (newWord.word.length - space) && guessLeft > 0)
-        {
-            play();
-    	}
+            preCount = count;
 
-    	else if ((count === newWord.word.length - space) && guessLeft > 0)
-    	{
-    		console.log("You got it right! Next Word!")
-    		newGame();
-    	}
+            if (count < (newWord.word.length - space) && guessLeft > 0)
+            {
+                play();
+        	}
 
-        else if (guessLeft <= 0)
-        {
-            console.log("Chance over! Next Word!")
-            newGame();
+        	else if ((count === newWord.word.length - space) && guessLeft > 0)
+        	{
+        		console.log("You got it right! Next Word!")
+        		newGame();
+        	}
 
-        }
+            else if (guessLeft <= 0)
+            {
+                console.log("Chance over! Next Word!")
+                newGame();
+
+            }
+       }
 
 
     });
