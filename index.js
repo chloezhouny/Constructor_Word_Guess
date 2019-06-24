@@ -65,18 +65,30 @@ inquirer
         else
         {
         	console.log("Incorrect!")
+            guessLeft --;
+            console.log(guessLeft + " guesses remaining!!")
         }
-        
+
+
         preCount = count;
-        if (count < newWord.word.length)
+
+        if (count < newWord.word.length && guessLeft > 0)
         {
-        play();
+            play();
     	}
-    	else
+
+    	else if (count === newWord.word.length && guessLeft > 0)
     	{
     		console.log("You got it right! Next Word!")
     		newGame();
     	}
+
+        else if (guessLeft <= 0)
+        {
+            console.log("Chance over! Next Word!")
+            newGame();
+
+        }
 
 
     });
