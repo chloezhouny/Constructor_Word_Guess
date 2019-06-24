@@ -6,8 +6,13 @@ var Letter = data.Letter;
 
 
 
+
+
 var spells = ["Crucio", "Expecto Patronum", "Imperio", "Expelliarmus", "Lumos", "Avada Kedavra", "Wingardium Leviosa", "Stupefy",
 "Incendio", "Protego Totalum", "Obliviate", "Finite Incantatem", "Reparo", "Alohomora"];
+
+var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
+
 
 var newWord;
 var correct;
@@ -60,7 +65,12 @@ inquirer
         var userGuess = answer.letter;
         var count = 0;
 
-        if (guessedLetter.includes(userGuess))
+        if (!alphabet.includes(userGuess))
+        {
+            play();
+        }
+
+        else if (guessedLetter.includes(userGuess))
         {
             console.log("Letter already guessed!!");
             play();
