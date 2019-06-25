@@ -5,7 +5,43 @@ const chalk = require('chalk');
 var Word = data.Word;
 var Letter = data.Letter;
 
+const chalkAnimation = require('chalk-animation');
+ 
+ var karaoke;
+ var glitch;
+ function createAnimationWin()
+ {
+    karaoke = 
+    chalkAnimation.karaoke(`      
+                                   ,/
+                                 ,'/
+                               ,' /
+                             ,'  /_____,
+                           .'____    ,'    
+                                /  ,'
+                               / ,'
+                              /,'
+                             /'
+                            `);
+}
 
+function createAnimationLose()
+{
+
+    glitch = 
+    chalkAnimation.glitch(`      
+                                       ,/
+                                     ,'/
+                                   ,' /
+                                 ,'  /_____,
+                               .'____    ,'    
+                                    /  ,'
+                                   / ,'
+                                  /,'
+                                 /'
+                            `);
+
+}
 
 
 
@@ -152,39 +188,50 @@ function play()
 
             	else if ((count === newWord.word.length - space) && guessLeft > 0)
             	{
-            		console.log(("                ") + chalk.yellowBright(`You got it right! Next Word!`));
-
+            		console.log(("                ") + chalk.yellowBright(`       You got it right!`));
                     console.log(" ");
-                    inquirer.prompt([
-                      {
-                        name: "exit",
-                        message: "       Enter E to exit game, or press any key to continue."
-                      },
-          
-                    ])
-                    .then(function(answer) {
+                    setTimeout(() => {
+                        createAnimationWin();
+                        // karaoke.start();
+                        setTimeout(() => {
+                            // karaoke.stop(); 
+                            inquirer.prompt([
+                              {
+                                name: "exit",
+                                message: "       Enter E to exit game, or press any key for next word."
+                              },
+                  
+                            ])
+                            .then(function(answer) {
 
-                        if (answer.exit === "E")
-                        {
-                            process.exit(1);
-                        }
-                        else
-                        {
-                            newGame();
-                        }
-                    })
+                                if (answer.exit === "E")
+                                {
+                                    process.exit(1);
+                                }
+                                else
+                                {
+                                    newGame();
+                                }
+                            })
+                        }, 5000);
+                    }, 2000)
+                    
             		
             	}
 
                 else if (guessLeft <= 0)
                 {
-                    console.log("                    " + chalk.yellowBright(`Chance over! Next Word!`));
+                    console.log("                    " + chalk.yellowBright(`      Chance over.`));
                     console.log(" ");
+                    glitch.start();
+                     setTimeout(() => {
+                    glitch.stop(); 
+                    }, 5000);
 
                     inquirer.prompt([
                       {
                         name: "exit",
-                        message: "       Enter E to exit game, or press any key to continue."
+                        message: "       Enter E to exit game, or press any key to next word."
                       },
           
                     ])
@@ -195,7 +242,7 @@ function play()
                             process.exit(1);
                         }
                         else
-                             {
+                        {
                             newGame();
                         }
                     })
