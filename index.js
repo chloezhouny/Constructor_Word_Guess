@@ -9,6 +9,7 @@ const chalkAnimation = require('chalk-animation');
  
  var karaoke;
  var glitch;
+ var harry;
  function createAnimationWin()
  {
     karaoke = 
@@ -28,23 +29,31 @@ const chalkAnimation = require('chalk-animation');
 function createAnimationLose()
 {
 
-    glitch = 
-    chalkAnimation.glitch(`    
+    radar = 
+    chalkAnimation.radar(`    
 
-                                       ,/
-                                     ,'/
-                                   ,' /
-                                 ,'  /_____,
-                               .'____    ,'    
-                                    /  ,'
-                                   / ,'
-                                  /,'
-                                 /'
-                                 
+                                   ,/
+                                 ,'/
+                               ,' /
+                             ,'  /_____,
+                           .'____    ,'    
+                                /  ,'
+                               / ,'
+                              /,'
+                             /'
+
                             `);
 
 }
 
+function createAnimationHarry()
+{
+    harry = chalkAnimation.karaoke(`                       
+                _   ,    
+                 |_|       '_|_)
+                 | |_)arry   | otter  Hangman`);
+}
+                                   
 
 
 var spells = ["Crucio", "Expecto Patronum", "Imperio", "Expelliarmus", "Lumos", "Avada Kedavra", "Wingardium Leviosa", "Stupefy",
@@ -92,13 +101,16 @@ function newGame()
 
     console.log(" ");
     console.log(divider);
-    console.log("                     Harry Potter Hangman")
-    console.log(" ");
-    console.log(" ");
-    console.log(" ");
-    console.log(spaceLine + newWord.wordPrint());
-    console.log(" ");
-	play();
+
+    createAnimationHarry()
+    setTimeout(() => {
+        console.log(" ");
+        console.log(" ");
+        console.log(" ");
+        console.log(spaceLine + newWord.wordPrint());
+        console.log(" ");
+    	play();
+    }, 3000);
 }
 
 
