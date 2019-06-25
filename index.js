@@ -14,15 +14,15 @@ const chalkAnimation = require('chalk-animation');
  {
     karaoke = 
     chalkAnimation.karaoke(`      
-                                   ,/
-                                 ,'/
-                               ,' /
-                             ,'  /_____,
-                           .'____    ,'    
-                                /  ,'
-                               / ,'
-                              /,'
-                             /'
+                               ,/
+                             ,'/
+                           ,' /
+                         ,'  /_____,
+                       .'____    ,'    
+                            /  ,'
+                           / ,'
+                          /,'
+                         /'
                             `);
 }
 
