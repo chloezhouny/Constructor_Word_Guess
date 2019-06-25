@@ -10,7 +10,7 @@ var Word = function(word)
    var string = "";
    for (var i = 0; i < this.word.length; i++)
    {
-    string = string + this.word[i].letterPrint();
+    string = string + this.word[i].letterPrint() + " ";
    }
    return string;
 
