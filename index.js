@@ -46,10 +46,10 @@ function newGame()
     }
 
     var newWordHolder = newWord.wordPrint();
-    var space = "";
+    var spaceLine = "";
     for (var i = 0; i < (64-newWordHolder.length - 2)/2; i++)
     {
-        space = space + " "
+        spaceLine = spaceLine + " "
     }
 
     console.log(" ");
@@ -58,7 +58,7 @@ function newGame()
     console.log(" ");
     console.log(" ");
     console.log(" ");
-    console.log(space + newWord.wordPrint());
+    console.log(spaceLine + newWord.wordPrint());
     console.log(" ");
 	play();
 }
@@ -108,13 +108,13 @@ function play()
                 newWord.wordCheck(userGuess);
 
                 var newWordHolder = newWord.wordPrint();
-                var space = "";
+                var spaceLine = "";
                 for (var i = 0; i < (64-newWordHolder.length - 2)/2; i++)
                 {
-                    space = space + " "
+                    spaceLine = spaceLine + " "
                 }               
                 console.log(" ");
-                console.log(space + newWord.wordPrint());
+                console.log(spaceLine + newWord.wordPrint());
 
 
                 for ( var i = 0; i < newWord.word.length; i ++)
