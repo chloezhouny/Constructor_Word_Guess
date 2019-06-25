@@ -29,7 +29,8 @@ function createAnimationLose()
 {
 
     glitch = 
-    chalkAnimation.glitch(`      
+    chalkAnimation.glitch(`    
+
                                        ,/
                                      ,'/
                                    ,' /
@@ -39,6 +40,7 @@ function createAnimationLose()
                                    / ,'
                                   /,'
                                  /'
+                                 
                             `);
 
 }
@@ -190,11 +192,8 @@ function play()
             	{
             		console.log(("                ") + chalk.yellowBright(`       You got it right!`));
                     console.log(" ");
-                    setTimeout(() => {
-                        createAnimationWin();
-                        // karaoke.start();
-                        setTimeout(() => {
-                            // karaoke.stop(); 
+                     createAnimationWin();
+                     setTimeout(() => {
                             inquirer.prompt([
                               {
                                 name: "exit",
@@ -213,39 +212,35 @@ function play()
                                     newGame();
                                 }
                             })
-                        }, 5000);
-                    }, 2000)
-                    
-            		
+            	}, 3000);	
             	}
 
                 else if (guessLeft <= 0)
                 {
                     console.log("                    " + chalk.yellowBright(`      Chance over.`));
                     console.log(" ");
-                    glitch.start();
-                     setTimeout(() => {
-                    glitch.stop(); 
-                    }, 5000);
+                    createAnimationLose();
+                    setTimeout(() => {
+                        inquirer.prompt([
+                          {
+                            name: "exit",
+                            message: "       Enter E to exit game, or press any key to next word."
+                          },
+              
+                        ])
+                        .then(function(answer) {
 
-                    inquirer.prompt([
-                      {
-                        name: "exit",
-                        message: "       Enter E to exit game, or press any key to next word."
-                      },
-          
-                    ])
-                    .then(function(answer) {
+                            if (answer.exit === "E")
+                            {
+                                process.exit(1);
+                            }
+                            else
+                            {
+                                newGame();
+                            }
+                        })
 
-                        if (answer.exit === "E")
-                        {
-                            process.exit(1);
-                        }
-                        else
-                        {
-                            newGame();
-                        }
-                    })
+                    }, 3000);
 
                 }
            }
