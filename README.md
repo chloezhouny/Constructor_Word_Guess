@@ -8,13 +8,27 @@ This project creates a Word Guess command-line game using constructor functions.
 
 ![](demo.gif)
 
+<br>
+
+#### Installation
+```
+$ npm init -y
+$ npm install inquirer
+$ npm install chalk
+$ npm install chalk-animation
+```
+
+<br>
+
 
 #### Technology Used
 
 
 * Command Line
 * Node.js
-* NPM
+* Inquirer NPM
+* Chalk NPM
+* Chalk Animation NPM
 
 
 
