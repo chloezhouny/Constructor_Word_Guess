@@ -1,4 +1,5 @@
 // Chloe Zhou
+// index.js - Constructor Word Guess - Harry Potter Hangman
 
 var inquirer = require("inquirer");
 var data = require("./word.js");
