@@ -1,3 +1,5 @@
+// Chloe Zhou
+
 var inquirer = require("inquirer");
 var data = require("./word.js");
 const chalk = require('chalk');
