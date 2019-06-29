@@ -4,13 +4,13 @@ This project creates a Word Guess command-line game using constructor functions.
 
 <br>
 
-#### Demo 
+## Demo 
 
 ![](demo.gif)
 
 <br>
 
-#### Installation
+## Installation
 ```
 $ npm i
 $ npm install inquirer
@@ -20,7 +20,7 @@ $ npm install chalk-animation
 
 <br>
 
-#### Usage
+## Usage
 Enter the commend line below to start game
 ```
 $ node index.js
@@ -28,7 +28,7 @@ $ node index.js
 
 <br>
 
-#### Code Snippet
+## Code Snippet
 Here is how I create animation on terminal using chalk-animation NPM. If the animation is defined inside of a function, then we are able to start it at any point we want.
 ```JAVASCRIPT
 const chalkAnimation = require('chalk-animation');
@@ -46,7 +46,7 @@ createAnimationHarry();
 
 <br>
 
-#### Technology Used
+## Technology Used
 
 
 * Command Line
@@ -57,5 +57,5 @@ createAnimationHarry();
 
 <br>
 
-#### Author
+## Author
 Chloe Zhou
