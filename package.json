@@ -19,7 +19,7 @@
   "homepage": "https://github.com/chloezhouny/Constructor_Word_Guess#readme",
   "dependencies": {
     "chalk": "^2.4.2",
-    "chalk-animation": "^1.6.0",
+    "chalk-animation": "^2.0.3",
     "inquirer": "^6.4.1"
   }
 }
